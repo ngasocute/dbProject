@@ -1,5 +1,5 @@
-DELIMITER //
-CREATE PROCEDURE CheckVoucher (
+DDELIMITER //
+CREATE PROCEDURE checkTypeCoupon (
 in id_type_coupon int,
 in title varchar(50),
 in SEOXU int,
@@ -14,7 +14,7 @@ BEGIN
     END IF;
     END; //
 
- CREATE PROCEDURE Voucher (
+ CREATE PROCEDURE typeCoupon (
  in id_type_coupon int,
  in title varchar(50),
  in SEOXU int,
@@ -22,7 +22,7 @@ BEGIN
  )
  BEGIN
  IF ( select count(*) 
- from type_coupon where type_coupon.id_type_coupon= id_type_coupon)>=1 Then set result =1;
+ from type_coupon where type_coupon.id_type_coupon= id_type_coupon)>=1 Then set result =-1;
  ELSE 
  insert into type_coupon(id_type_coupon,title,SEOXU)
  value (id_type_coupon,title,SEOXU);
@@ -43,7 +43,7 @@ SET SQL_SAFE_UPDATES=0;
 	SET SQL_SAFE_UPDATES=1;
 END;// 
 
-CREATE PROCEDURE DeleteVoucher (
+CREATE PROCEDURE deleteVoucher (
 	in id_type_coupon int,
     in SEOXU int,
     out result int
@@ -57,3 +57,6 @@ SET SQL_SAFE_UPDATES=1;
 END; //
 
 DELIMITER ;
+
+
+
