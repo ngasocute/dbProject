@@ -1,4 +1,4 @@
-DDELIMITER //
+DELIMITER //
 CREATE PROCEDURE checkTypeCoupon (
 in id_type_coupon int,
 in title varchar(50),
@@ -21,9 +21,12 @@ BEGIN
  out result int
  )
  BEGIN
- IF ( select count(*) 
- from type_coupon where type_coupon.id_type_coupon= id_type_coupon)>=1 Then set result =-1;
- ELSE 
+ IF ( select count(*) from type_coupon where type_coupon.id_type_coupon= id_type_coupon)>=1 
+ THEN  call checkTypeCoupon (id_type_coupon,title,SEOXU, @result1);
+	IF(@result=1)
+    THEN select result = -1;
+    END IF;
+ELSE 
  insert into type_coupon(id_type_coupon,title,SEOXU)
  value (id_type_coupon,title,SEOXU);
  insert into img(obj_id,obj_type,img_url )
@@ -57,6 +60,5 @@ SET SQL_SAFE_UPDATES=1;
 END; //
 
 DELIMITER ;
-
 
 
