@@ -1,6 +1,5 @@
 DELIMITER //
 CREATE PROCEDURE checkTypeCoupon (
-in id_type_coupon int,
 in title varchar(50),
 in SEOXU int,
 out result int
@@ -18,11 +17,13 @@ BEGIN
  in id_type_coupon int,
  in title varchar(50),
  in SEOXU int,
+ in img_url,
  out result int
  )
  BEGIN
- IF ( select count(*) from type_coupon where type_coupon.title= title and type_coupon.SEOXU= SEOXU )>=1 
- THEN  call checkTypeCoupon (id_type_coupon,title,SEOXU, @result1);
+ -- IF ( select count(*) from type_coupon where type_coupon.title= title and type_coupon.SEOXU= SEOXU )>=1 
+ -- THEN 
+ call checkTypeCoupon (id_type_coupon,title,SEOXU, @result1);
 	IF(@result=1)
     THEN select result = -1;
     END IF;
