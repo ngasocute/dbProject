@@ -1,0 +1,38 @@
+.btn-info{
+    border-radius: 20px;
+	border: 1px solid #020034;
+	background-color:#61C5CE;
+	color: #141619;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 11px 42px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+
+}
+/* .register{
+    background-color: #61C5CE;
+} */
+.logoSeo {
+	padding: 10px;
+  }
+
+
+.form-control{
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 120%;
+	margin-top: 20px;
+}
+.input {
+	background-color: #000000 !important;
+	border: none;
+	padding: 5px 20px !important;
+	margin: 8px 0;
+	width: 100%;
+}
